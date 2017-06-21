@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-  <!-- Basic Page Needs
+    <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Your page title here :)</title>
-  <meta name="description" content="Geoprocessing with QGIS">
-  <meta name="author" content="Boyd Shearer">
+    <meta charset="utf-8">
+    <title>YQGIS Workshop: June 27, 2017</title>
+    <meta name="description" content="Geoprocessing with QGIS">
+    <meta name="author" content="Boyd Shearer">
 
-  <!-- Mobile Specific Metas
+    <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
+    <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
-  <!-- CSS
+    <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.61.0/L.Control.Locate.min.css'>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.61.0/L.Control.Locate.min.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!--[if lt IE 9]>
   <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
 <![endif]-->
 
-<style>
+    <style>
         body {
             padding: 0;
             margin: 0;
         }
         
         h3 {
-            margin-bottom:5px;
+            margin-bottom: 5px;
         }
         
         html,
@@ -52,8 +53,8 @@
         
         #map {
             width: 100%;
-            height:450px;
-            padding-bottom:10px;
+            height: 450px;
+            margin-bottom: 20px;
         }
         
         #header {
@@ -67,105 +68,143 @@
         }
     </style>
 
-  <!-- Favicon
+    <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Data
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <script src="workshop_locations.json"></script>
 
 
 
 </head>
+
 <body>
 
-  <!-- Primary Page Layout
+    <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <div class="row">
-      <div id="map"></div>
+    <div id="map"></div>
+    <div class="container">
+        <div class="row">
+            <div class="full column">
+                <h1>Welcome to a QGIS Workshop!</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="one-half column">
+                <h4>Location and parking</h4>
+                <p>The workshop is held in the University of Kentucky White Hall CB rooms 311 and 313. The nearest visitor parking is available in Parking Stucture #5, which is shown on the above map and in the official <a href="https://maps.uky.edu/campusmap/">Campus map</a>.</p> The rate is $2/hour with a $16 maximum.</p>
+            
+            <p>Metered on-street parking is available, but likely will not be for 8 or 9 hours. If you are willing to walk and the weather is nice, neighborhoods to the northeast don't charge for on-street parking. That could be a mile walk, however. Campus neighborhoods often require parking badges to park on street.</p>
+                    
+                    
+            </div>
+        </div>
     </div>
-    <div class="row">
-      <div class="one-half column" style="margin-top: 25%">
-        <h4>Basic Page</h4>
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
-      </div>
-    </div>
-  </div>
 
-<!-- End Document
+    <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 
 
-<!-- Scripts go down here
+    <!-- Scripts go down here
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <script type="text/javascript" src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.61.0/L.Control.Locate.min.js'></script>
     <script>
-        var photo = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
-            photo2 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png'),
-            topo = L.tileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}.png");
+        var photo = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: "<a href='https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9'>ESRI</a>, June, 2017"
+
+            }),
+            osm_map = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: "<a href='http://www.openstreetmap.org/copyright'>© OpenStreetMap contributors</a>"
+
+            }),
+           toner = L.tileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}.png", {
+
+
+                attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
+            });
 
 
         var bounds = new L.LatLngBounds(
-            new L.LatLng(36.2, -85.5),
-            new L.LatLng(38.4, -82.5));
+            new L.LatLng(38.0360, -84.5096), // lower left
+            new L.LatLng(38.0431, -84.4977)); // upper right
 
-        var map = L.map('map', options_map).addLayer(photo).fitBounds(bounds);
+        var map = L.map('map', options_map).addLayer(osm_map).fitBounds(bounds);
 
         var options_map = {
-            minZoom: 8
-        }
+            minZoom: 8,
+            maxZoom: 20
+        };
 
 
         var baseMaps = {
             "Photo map": photo,
-            "Photo map2": photo2,
-            "Topo meters": topo
-            /*"Title": title*/
+            "OSM map": osm_map,
+            "Toner map": toner
+            
         };
 
-        
 
 
-        /* --------------- Layers ---------------  */
+
+        /* --------------- Layer of workshop locations ---------------  */
 
 
-        /* Trails Symbols Definitions */
-        
-        var generic = {
-            "color": "#b26f20",
-            "weight": 3,
-            "opacity": 0.7
-        };
+        // Build popup and select icon for locations
 
-        var bike_lane = {
-            "color": "#539bd8",
-                    "weight": 6,
-                    "opacity": 0.4
-        };
-        
-         var sharrow = {
-            "color": "#7c53d8",
-                    "weight": 0,
-                    "opacity": 0
-        };
-        
-        var shared_use = {
-            "color": "#ff0000",
-                    "weight": 4,
-                    "opacity": 0.7
-        };
-        
-         var walking_trail = {
-            "color": "#b26f20",
-            "weight": 3,
-            "opacity": 0.7
+        for (j = 0; j < workshop_locations.features.length; j++) {
+
+            var popupContent = "<h4 style='margin-bottom:-10px;'>" + workshop_locations.features[j].properties.name + "</h4><br>Vist <a href='" + workshop_locations.features[j].properties.url + "' target='_blank'>link</a><br>" + workshop_locations.features[j].properties.description;
+
+            var icoURL = "";
+
+            if (workshop_locations.features[j].properties.type.match(/food/g)) {
+                var icoURL = "images/food.svg",
+                    icoSize = [20, 20];
+
+            } else if (workshop_locations.features[j].properties.type.match(/workshop/g)) {
+                var icoURL = "images/workshop.svg",
+                    icoSize = [20, 20];
+            } else if (workshop_locations.features[j].properties.type.match(/coffee/g)) {
+                var icoURL = "images/coffee.svg",
+                    icoSize = [20, 20];
+            } else if (workshop_locations.features[j].properties.type.match(/parking/g)) {
+                var icoURL = "images/parking.svg",
+                    icoSize = [20, 20];
+
+            } else {
+                var icoURL = "images/food.svg",
+                    icoSize = [15, 15]
+            };
+            
+            // Make marker
+
+            var icon = L.icon({
+                iconUrl: icoURL,
+                iconSize: icoSize,
+                popupAnchor: [0, -22],
+                className: 'icon'
+            });
+   
+
+            // Place marker and popup
+            
+            L.marker([workshop_locations.features[j].geometry.coordinates[1], workshop_locations.features[j].geometry.coordinates[0]], {
+                icon: icon
+            }).addTo(map).bindPopup(popupContent);
         };
 
         L.control.layers(baseMaps).addTo(map);
         L.control.locate().addTo(map);
-
+        L.control.scale().addTo(map);
         
     </script>
 </body>
+
 </html>
