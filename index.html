@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.61.0/L.Control.Locate.min.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
+<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        
+        h3 {
+            margin-bottom:5px;
+        }
+        
+        html,
+        body,
+        #map {
+            height: 100%;
+        }
+        
+        .quote {
+            margin: 10px;
+            color: #333;
+        }
+        
+        #map {
+            width: 100%;
+            height:450px;
+            padding-bottom:10px;
+        }
+        
+        #header {
+            width: 100%;
+            background-color: #d9e5c3;
+            height: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .8em;
+            padding: 5px 0px 0px 8px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+
+    <script type="text/javascript" src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.61.0/L.Control.Locate.min.js'></script>
+    <script>
+        var photo = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
+            photo2 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png'),
+            topo = L.tileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}.png");
+
+
+        var bounds = new L.LatLngBounds(
+            new L.LatLng(36.2, -85.5),
+            new L.LatLng(38.4, -82.5));
+
+        var map = L.map('map', options_map).addLayer(photo).fitBounds(bounds);
+
+        var options_map = {
+            minZoom: 8
+        }
+
+
+        var baseMaps = {
+            "Photo map": photo,
+            "Photo map2": photo2,
+            "Topo meters": topo
+            /*"Title": title*/
+        };
+
+        
+
+
+        /* --------------- Layers ---------------  */
+
+
+        /* Trails Symbols Definitions */
+        
+        var generic = {
+            "color": "#b26f20",
+            "weight": 3,
+            "opacity": 0.7
+        };
+
+        var bike_lane = {
+            "color": "#539bd8",
+                    "weight": 6,
+                    "opacity": 0.4
+        };
+        
+         var sharrow = {
+            "color": "#7c53d8",
+                    "weight": 0,
+                    "opacity": 0
+        };
+        
+        var shared_use = {
+            "color": "#ff0000",
+                    "weight": 4,
+                    "opacity": 0.7
+        };
+        
+         var walking_trail = {
+            "color": "#b26f20",
+            "weight": 3,
+            "opacity": 0.7
+        };
+
+        L.control.layers(baseMaps).addTo(map);
+        L.control.locate().addTo(map);
+
+        
+    </script>
+
+</body>
+
+</html>
