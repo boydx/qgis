@@ -6,7 +6,7 @@
     <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
-    <title>YQGIS Workshop: June 27, 2017</title>
+    <title>QGIS Workshop: June 27, 2017</title>
     <meta name="description" content="Geoprocessing with QGIS">
     <meta name="author" content="Boyd Shearer">
 
@@ -89,21 +89,41 @@
     <div class="container">
         <div class="row">
             <div class="full column">
-                <h1><img src="images/workshop.svg" height="40px" width="40px"> Welcome to a QGIS Workshop!</h1>
+                <h1 style="margin-bottom:0px;"><img src="images/workshop.svg" height="40px" width="40px"> QGIS Workshop </h1>
+                <h3>June 27, 9:00 AM - 5:00 PM</h3>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="margin-top:20px;">
+            <div class="one-half column">
+                <h3>Welcome!</h3>
+                <p><a href="http://newmapsplus.uky.edu/">New Maps Plus</a> at the University of Kentucky <a href="https://geography.as.uky.edu/">Department of Geography</a> is excited to offer this QGIS workshop. The workshop is completely full and we will post more details here. </p>
+                
+                
+                <p><a href="https://geography.as.uky.edu/user/6491">Boyd Shearer</a> is the instructor.</p>
+                
+                <h5>What you need to bring?</h5>
+                <p>This workshop will provide the computer, data, and instructional material. You don't need any special software or device. However, you are welcome to bring your laptop, though we will NOT spend time installing QGIS and will focus on the Windows version.</p>
+                <p>Time allowing, you can share your data and questions at the end of the workshop. Your data should be downloadable or on a portable drive. The instructor will be avaialable after class to discuss your data.</p>
+                    
+                    
+            </div>
             <div class="one-half column">
                 <h4>Location and parking</h4>
                 <p>The workshop is held in the University of Kentucky White Hall CB rooms 311 and 313. The nearest visitor parking is available in Parking Stucture #5, which is shown on the above map and in the official <a href="https://maps.uky.edu/campusmap/">Campus map</a>. The rate is $2/hour with a $16 maximum.</p>
             
-            <p>Metered on-street parking is available, but likely will not be for 8 or 9 hours. If you are willing to walk and the weather is nice, neighborhoods to the northeast don't charge for on-street parking. That could be a mile walk, however. Campus neighborhoods often require parking badges to park on street.</p>
+            <p>Metered on-street parking is available, but not likely will for the entire duration of the workshop. If you are willing to walk and the weather is nice, neighborhoods to the northeast don't charge for on-street parking. That could be a mile walk, however. Campus neighborhoods often require parking badges to park on street.</p>
+                
+                <h5>Lunch and snacks</h5>
+                <p>A break for lunch is between noon and 1 PM. Campus has a lot of <a href="http://www.lexeat.com/ukcampus.html">great resturants</a> for you to find lunch. Snacks are available vending machines in the basement of White Hall</p> 
+                <p>No food or open beverages are allowed at the computer stations. The lab has a classroom (shown in the below <a href="https://kuula.co/share/7lGGG">360&#176; photo</a>) where one can enjoy snacks.</p>
                     
                     
             </div>
         </div>
     </div>
+    
+    <style type="text/css">.kuula7lggg { width: 100%; height: 440px; }</style><iframe class="kuula7lggg" frameborder="0" scrolling="no" allowfullscreen="true" src="https://kuula.co/share/7lGGG?logo=0"></iframe>
 
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -130,10 +150,11 @@
                 attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
             });
 
-
+        // Fit the map area of interest
+        
         var bounds = new L.LatLngBounds(
             new L.LatLng(38.0360, -84.5096), // lower left
-            new L.LatLng(38.0431, -84.4977)); // upper right
+            new L.LatLng(38.0440, -84.4977)); // upper right
 
         var map = L.map('map', options_map).addLayer(osm_map).fitBounds(bounds);
 
