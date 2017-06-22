@@ -369,6 +369,10 @@ form {
   float: right; }
 .u-pull-left {
   float: left; }
+.center-img {
+    display: block;
+    margin: 0 auto;
+}
 
 
 /* Misc
