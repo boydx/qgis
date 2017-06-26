@@ -23,6 +23,47 @@ The following zip files contain spatial data that we'll use in this lesson. It i
 * 
 
 
+![Test for photo](images/presentation/01_01.png)   
+Figure:
+
+
+![Test for photo](images/presentation/02_01.png)   
+Figure:
+
+![Test for photo](images/presentation/03_01.png)   
+Figure:
+
+![Test for photo](images/presentation/04_01.png)   
+Figure:
+
+![Test for photo](images/presentation/05_01.png)   
+Figure:
+
+![Test for photo](images/presentation/06_01.png)   
+Figure:
+
+
+![Test for photo](images/presentation/07_01.png)   
+Figure:
+
+
+![Test for photo](images/presentation/08_01.png)   
+Figure:
+
+
+![Test for photo](images/presentation/09_01.png)   
+Figure:
+
+
+![Test for photo](images/presentation/10_01.png)   
+Figure:
+
+
+![Test for photo](images/presentation/11_01.png)   
+Figure:
+
+
+
 ## Course credits
 
-![](images/nmp.png)
+![Test for photo](images/nmp.png)
