@@ -28,7 +28,7 @@ We use the following written conventions:
 * Names of files and directories will be italicized, e.g., _datapage.zip_.
 * Code that needs to be written and function parameters will be either ```inline``` or in a 
 
-```
+```SQL
 /* Block of SQL code that needs to be entered in the DB Manager */
 
 SELECT * FROM my_table
@@ -182,73 +182,147 @@ from
 group by 
 	fips_name 
 order by 
-	total_fire_acres
+	total_fire_acres;
 ```
 
 ### Using DB Manager and SpatiaLite to calculate rate of wildfire
 
-![Test for photo](images/presentation/03_02.png)   
-Figure: Create table in DB Manager menu with close attention to parameters
+![Create table in DB Manager menu with close attention to parameters.](images/presentation/03_02.png)   
+Figure: Create table in DB Manager menu with close attention to parameters.
 
-![Test for photo](images/presentation/04_02.png)   
-Figure:
+```SQL
+/* Spatial join (aggregate) wildfire points by counties */
 
-![Test for photo](images/presentation/05_02.png)   
-Figure:
+-- Copy and paste into DB Manager
 
-![Test for photo](images/presentation/06_02.png)   
-Figure:
+insert into ky_wildfires_by_county 
+	
+	(
+	name,
+	population,
+	cumulative_acres,
+	geom 
+	)
+
+select
+	ky_counties.name, 
+	ky_counties.POP_ESTIMATE_2013, 
+	sum(fire_size) as cumulative_acres,
+	ky_counties.geom
+from
+	ky_counties, ky_wildfire
+where
+	st_intersects(ky_counties.geom,ky_wildfire.geom)
+group by 
+	ky_counties.name;
+```
+If you make a mistake with your query, just delete all attributes from the new table with the following statement:
+
+```SQL
+delete from ky_wildfires_by_county;
+```
+and rerun the corrected query.
+
+![Map total acres by county (not normalized).](images/presentation/04_02.png)   
+Figure: Map total acres by county (not normalized).
+
+![Map total acres by county (not normalized).](images/presentation/05_02.png)   
+Figure: Map total acres by county (not normalized).
+
+![Map cumulative acres per person by county.](images/presentation/06_02.png)   
+Figure: Map cumulative acres per person by county.
 
 
-![Test for photo](images/presentation/07_02.png)   
-Figure:
-
-### Spatial Bookmarks
-
-![Test for photo](images/presentation/08_02.png)   
-Figure:
-
-## Using OpenStreetMap data
-
-![Test for photo](images/presentation/09_02.png)   
-Figure:
+![Map cumulative acres per person by county.](images/presentation/07_02.png)   
+Figure: Map cumulative acres per person by county.
 
 
-![Test for photo](images/presentation/10_02.png)   
-Figure:
+
+![Map cumulative percentage burned by county.](images/presentation/08_02.png)   
+Figure: Map cumulative percentage burned by county.
+
+Use the following expression in the Style Panel to normalize by area: ```cumulative_acres/($area/43560)```.
+
+![Map cumulative percentage burned by county.](images/presentation/09_02.png)   
+Figure: Map cumulative percentage burned by county.
+
+## Use QGIS Vector tools for analysis
+
+![Save Shapefile to a new layer.](images/presentation/10_02.png)   
+Figure: Save Shapefile to a new layer.
 
 
-![Test for photo](images/presentation/11_02.png)   
-Figure:
+![Select attributes and CRS of new layer.](images/presentation/11_02.png)   
+Figure: Select attributes and CRS of new layer.
 
-### Interrogating OSM attributes
 
-![Test for photo](images/presentation/12_02.png)   
-Figure:
 
-![Test for photo](images/presentation/13_02.png)   
-Figure:
+![Select attributes and CRS of new layer.](images/presentation/12_02.png)   
+Figure: Select attributes and CRS of new layer.
 
-![Test for photo](images/presentation/14_02.png)   
-Figure:
+![Select attributes and CRS of new GeoJSON.](images/presentation/13_02.png)   
+Figure: Join attributes by location does a Spatial Join 
+
+![Pay close attention to tool parameters.](images/presentation/14_02.png)   
+Figure: Pay close attention to tool parameters.
+
+### Compare to intersect analysis in SpatiaLite
 
 ![Test for photo](images/presentation/15_02.png)   
-Figure:
+Figure: Create new table in DB Manager
 
-### Rule-based symbology of OSM layers
+```SQL
 
-![Test for photo](images/presentation/16_02.png)   
-Figure:
+/* Spatial join with point in polygon using SpatiaLite spatial index. PostGIS automatically uses the spatial index. */
 
-![Test for photo](images/presentation/17_02.png)   
-Figure:
+-- Copy and paste into DB Manager
 
-![Test for photo](images/presentation/19_02.png)   
-Figure:
+insert into ky_wildfires_by_blockgroup
+	(
+	name,
+	area_acres,
+	cumulative_fire_arces,
+	population,
+	geom 
+	)
+
+select
+	ky_blockgroups.geoid10, 
+	st_area(ky_blockgroups.geom)/43560,
+	sum(fire_size) as cumulative_acres,
+	ky_blockgroups.b01001e1, 
+	ky_blockgroups.geom
+from
+	ky_blockgroups, ky_wildfire
+where
+	st_intersects(ky_blockgroups.geom,ky_wildfire.geom)
+and
+
+/* Use the spatial index query to limit our candidate points. */
+    
+    ky_wildfire.rowid 
+
+    in (
+
+        select rowid from SpatialIndex         
+        where 
+            f_table_name = 'ky_wildfire'
+        and
+            search_frame = ky_blockgroups.geom
+        )
+group by ky_blockgroups.geoid10;
+```
+
+![Normalize output layer by population.](images/presentation/16_02.png)   
+Figure: Normalize output layer by population.
 
 
-![Test for photo](images/presentation/18_02.png)   
-Figure:
+![Example of choropleth map.](images/presentation/19_02.png)   
+Figure: Example of choropleth map.
+
+
+![Publish the choropleth map in Print Composer](images/presentation/18_02.png)   
+Figure: Publish the choropleth map in Print Composer.
 
 
 
