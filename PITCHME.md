@@ -2,13 +2,13 @@
 ##Welcome!
 ###I'm Boyd, your instructor
 
-#HSLIDE?image=images/outragegis.jpg
+#HSLIDE?image=images/outragegis1.jpg
 ###I make maps for <a href="https://outragegis.com" target="_blank">trails</a>.
 
-#HSLIDE?image=images/nmp.jpg
+#HSLIDE?image=images/nmp1.jpg
 ###Teach mapping <a href="http://newmapsplus.uky.edu/" target="_blank">New Maps Plus</a>.
 
-#HSLIDE?image=images/tbt.jpg
+#HSLIDE?image=images/tbt1.jpg
 ###Most recent map project using open source: <a href="http://boydx.github.io/tbt/" target="_blank">Town Branch Trail</a>.
 
 
