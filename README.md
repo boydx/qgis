@@ -58,19 +58,36 @@ Figure: Accessing component information about QGIS.
 Figure: QGIS project is part of [OSGeo](http://osgeo.org).
 
 ## Adding plugins and base maps
-
+Step 01: Install OuickOSM at main menu > **Plugins > Manage and Install Plugins... > Search "QuickOSM"**
 ![User-contributed plugins are one of great assets of QGIS](images/presentation/03_01.png)   
 Figure: User-contributed plugins are one of great assets of QGIS.
 
+Step 02: Install OpenLayers at QGIS main menu > **Plugins > Manage and Install Plugins... > Search "OpenLayers"**
 ![OpenLayers plugin provides many raster base maps to help start a project](images/presentation/04_01.png)   
 Figure: OpenLayers plugin provides many raster base maps to help start a project.
 
-![Tile Server (XYZ) offers fast access to the growing world of raster base map tile sets.](images/presentation/05_01.png)   
+Step 03: Add tile set at QGIS **Browser Panel > Tile Server (XYZ) [right+click] > New Connection..** and add the URL:
+```https://tile.openstreetmap.org/{z}/{x}/{y}.png```
+![Tile Server (XYZ) offers lightning fast access to the growing world of raster base map tile sets.](images/presentation/05_01.png)   
 Figure: Tile Server (XYZ) offers fast access to the growing world of raster base map tile sets.
 
+Other tile servers to add include the following:
+
+```
+/* Classy minimal style map */
+https://stamen-tiles-{s}.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}.png
+
+/* ESRI world imagery for free applications */
+https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
+```
+Step 04: Add 2016 [NAIP imagery](https://gis.apfo.usda.gov/arcgis/rest/services/NAIP) at QGIS Add data menu > **Add WMS/WMTS Layer... > New*** and add the URL:
+```https://gis.apfo.usda.gov/arcgis/services/NAIP/Kentucky_2016_60cm/ImageServer/WMSServer```
 ![Web Mapping Services (WMS) is a traditional method of adding layers to a mapping project.o](images/presentation/06_01.png)   
 Figure: Web Mapping Services (WMS) is a traditional method of adding layers to a mapping project.
 
+Other WMS services might be faster. Check out Kentucky's [WMS services](http://kyraster.ky.gov/arcgis/rest/services):
+
+```http://kyraster.ky.gov/arcgis/services/ImageServices/Ky_NAIP_2016_2FT/ImageServer/WMSServer ```
 
 ![Layers in QGIS always have transparency options](images/presentation/07_01.png)   
 Figure: Layers in QGIS always have transparency options.
@@ -80,7 +97,9 @@ Figure: Layers in QGIS always have transparency options.
 ![Use spatial bookmarks to set map canvas views.](images/presentation/08_01.png)   
 Figure: Use spatial bookmarks to set map canvas views.
 
-## Using OpenStreetMap data
+-----
+
+## Using OpenStreetMap data: Where to eat Lunch?
 
 ![QuickOSM is one of the easiest ways to get OSM data in a mapping project](images/presentation/09_01.png)   
 Figure: QuickOSM is one of the easiest ways to get OSM data in a mapping project.
@@ -160,7 +179,9 @@ Figure: Measure the distance to the your preferred restaurant.
 ![Export the point layer as GeoJSON while controlling for CRS.](images/presentation/29_01.png)   
 Figure: Export the point layer as GeoJSON while controlling for CRS.
 
-## Geoprocessing with QGIS
+-----
+
+## Geoprocessing with QGIS: Wildfire rates in Kentucky
 
 ![Feature blending modes can create visualizations of density.](images/presentation/02_02.png)   
 Figure: Feature blending modes can create visualizations of density.
