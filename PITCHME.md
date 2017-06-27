@@ -41,14 +41,14 @@
 
 
 #HSLIDE
-##Course goal uno
+##Course goal one
 ### Publish a georeferenced map using only OSM data to find lunch
 
-#HSLIDE?image=images/presentation/food_on_campus.png
+#HSLIDE?image=images/presentation/food_on_campus.jpg
 
 
 #HSLIDE
-##Course goal dos
+##Course goal two
 ### Find with county and block group had the most wildfire between 1992-2013
 
 #HSLIDE?image=images/presentation/18_02.png
