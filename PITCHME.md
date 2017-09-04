@@ -14,20 +14,16 @@
 
 #HSLIDE
 ## Fundamentals of QGIS
-### Map making in an open source environment
+### Map making and geoprocessing in an open source environment
 
 #HSLIDE
-## Unique?
-* It's the best GIS & graphic design software for those unique cartographic effects,
-* tightly integrated with OpenStreetMap, the wikipedia of maps,
-* an integration of different programs/libraries that vastly extend functionality,
+## QGIS
+### compared to ArcMap
+* QGIS has better layering for unique cartographic effects,
+* is tightly integrated with OpenStreetMap, the wikipedia of maps,
+* with many different programs/libraries/plugins that vastly extend functionality,
 * and, oh, and it's all free to use for whatever you want! 
 
-#HSLIDE
-## Strolling?
-* More like sprawling.
-* The [instructions](https://github.com/boydx/qgis) are mostly screenshots and commands and could be seen as two, or even three, unique lessons. It needs a little housekeeping.
-* Since we'll be strolling together, we'll see how far we can get in a day.
 
 
 #HSLIDE
@@ -41,15 +37,18 @@
 
 
 #HSLIDE
-## Course goal one
-### Publish a georeferenced map using only OSM data to find lunch
+## Module 01
+### Let's meet QGIS!
 
-#HSLIDE?image=images/presentation/food_on_campus.jpg
+#HSLIDE?image=images/intro/010.png
 
 
 #HSLIDE
-## Course goal two
-### Find with county and block group had the most wildfire between 1992-2013
+## QGIS
+### preferred data file formats
+* GeoJSON instead of Shapefile
+* PostGIS instead of File Geodatabase
+* GeoTIFF
 
 #HSLIDE?image=images/presentation/18_02.png
 
