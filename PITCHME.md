@@ -42,6 +42,11 @@
 
 #HSLIDE?image=images/intro/010.png
 
+#HSLIDE
+## Get data
+### Load vector data from a file geodatabase
+[https://boydx.github.io/qgis/project_assets/data_in_file_geodatabase.zip](https://boydx.github.io/qgis/project_assets/data_in_file_geodatabase.zip)
+
 
 #HSLIDE
 ## QGIS
