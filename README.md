@@ -1,6 +1,6 @@
 # QGIS Instruction
 
-Workshops, short courses, and other events directed towards learning QGIS and open source mapping.
+Workshops, short courses, and other events directed at learning QGIS and open source mapping.
 
 
 
