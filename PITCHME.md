@@ -13,8 +13,8 @@
 
 
 #HSLIDE
-## QGIS Short Course
-### Strolling through some unique capabilities found in QGIS
+## Fundamentals of QGIS
+### Map making in an open source environment
 
 #HSLIDE
 ## Unique?
