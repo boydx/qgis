@@ -105,6 +105,8 @@ Photoshop-like layering in QGIS can provide unique ways to symbolize features.
 ### Make slippy maps
 Control how symbols and labels look by zoom level
 
+#HSLIDE?image=images/presentation/20_01.png
+
 
 #HSLIDE?image=images/intro/030.png
 
@@ -112,6 +114,8 @@ Control how symbols and labels look by zoom level
 ## Query Builder
 ### Find certain amenities
 ```"amenity" IN ('cafe','fast_food')```
+
+#HSLIDE?image=images/presentation/23_01.png
 
 
 #HSLIDE?image=images/intro/040.png
@@ -125,7 +129,9 @@ Control how symbols and labels look by zoom level
 ### Add map elements
 Build the layout by adding various map elements. Export to GeoTIFF.
 
-#HSLIDE?image=images/intro/040.png
+#HSLIDE?image=images/presentation/25_01.png
+
+#HSLIDE?image=images/intro/050.png
 
 
 #HSLIDE
