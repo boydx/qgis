@@ -15,10 +15,18 @@
 #HSLIDE?image=images/tbt.jpg
 ### Most recent map project using open source: <a href="http://boydx.github.io/tbt/" target="_blank">Town Branch Trail</a>.
 
-
 #HSLIDE
-## Fundamentals of QGIS
-### Map making and geoprocessing in an open source environment
+## Raster analysis and tile set publishing
+### with QGIS and GDAL utilities
+
+
+#HSLIDE?image=https://www.outragegis.com/weather/goes16/current.jpg
+### Do a lot of weather image processing: <a href="https://www.outragegis.com/weather/goes16/animation.gif" target="_blank">GOES-16 animation</a>.
+
+#HSLIDE?image=images/intro/060.png
+### Do scripting to process imagery: <a href="https://www.sheltoweetrace.com/hike/radar.html" target="_blank">radar overlay</a> and <a href="https://github.com/boydx/outrageGIS-weather-stations" target="_blank">source</a>.
+
+
 
 #HSLIDE
 ## QGIS
