@@ -38,7 +38,7 @@ A FOSS library that QGIS uses to process and transform raster data <a href="http
 #HSLIDE
 ## Get data
 ### Iroquois Park raster data
-A 5-ft resolution DEM and 2-ft, 4-band 2016 NAIP data sets: <a href="https://github.com/boydx/qgis/blob/master/project_assets/iroquois_park.zip" target="_blank">iroquois_park.zip</a>. 
+A 5-ft resolution DEM and 2-ft, 4-band 2016 NAIP data sets: <a href="https://boydx.github.io/qgis/project_assets/iroquois_park.zip" target="_blank">iroquois_park.zip</a>. 
 
 #HSLIDE
 ## Get QGIS plugins
@@ -99,10 +99,6 @@ Make the symbology permanent by rendering the layer during a right-click **Save 
 
 #HSLIDE?image=images/intro/110.jpg
 
-#HSLIDE
-## Get data
-### Load vector data from a file geodatabase
-<a href="https://boydx.github.io/qgis/project_assets/data_in_file_geodatabase.zip" target="_blank">data_in_file_geodatabase.zip</a>
 
 #HSLIDE
 ## Module 05
